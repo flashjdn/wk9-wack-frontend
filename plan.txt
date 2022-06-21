@@ -24,6 +24,19 @@ CreateComment: Allows us to form the comment UI
     -   Can be customised with css to allow for colour switching
 
 Contents: the make up of the component
+    -   Button: Reply button with onClick elements to open a modal
+
+    -   DialogTitle: Title at the top of the modal
+
+    -   DialogContent: Container for the rest of the modal Components
+
+    -   TextField: Input field. Used twice for name input and comment input.
+        !!IMPORTANT
+        We will need to link our db here to take the output of these fields and store them
+        
+        How do we target the output of each field? TextField is the component, and "value" corresponds to whatever is written in the field
+
+        Do we need to use state to track the value, and then add an onChange event handler to get the value once the submit button is clicked?
 
 -   
 

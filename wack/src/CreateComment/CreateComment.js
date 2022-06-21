@@ -18,7 +18,11 @@ const [open, setOpen] = React.useState(false);
   const handleClose = () => {
     setOpen(false);
   };
-  
+
+function getCommentData() {
+    const data = TextField.target.value;
+    console.log(data)
+  };
 
   return (
     <div>
@@ -37,13 +41,14 @@ const [open, setOpen] = React.useState(false);
             fullWidth
             variant="standard"
             multiline
+            // value=""
           />
           <TextField
             autoFocus
             margin="dense"
             id="reply"
             label="Comment"
-            type="email"
+            type="string"
             fullWidth
             variant="standard"
             multiline
