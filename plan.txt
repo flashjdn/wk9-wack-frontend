@@ -1,0 +1,48 @@
+* * * * * * Front end breakdown * * * * * *
+
+Components required: 
+
+
+CommentDisplay: This lets us render the comments on the page
+    -   This will eventually be linked to the back end
+
+    Props: What we want to display within the comment
+    -   username: Make this a user entered field rahter than trying to implement authentication as it will take too much time
+
+    -   timestamp: contains the date in which the comment was posted
+
+    -   content: this is the message that will make up the body of the comment
+
+
+    Features: (mainly the UI we will use from the library)
+    -   Chip: UI element that will contain the post date. Can be linked to db to fill via postDate column
+    -   More to be added after review
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+CreateComment: Allows us to form the comment UI 
+    -   Can be customised with css to allow for colour switching
+
+Contents: the make up of the component
+
+-   
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+
+-   PostDisplay: Similar to the above, allows for posts to be created AND rendered on the page 
+    -   This will also be linked to the back end in order to retrieve pre-populated posts in the table
+    -   Also renders the comments that belong to a specific post
+
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+
+-   Sidebar: Sitting on left hand side, this will allow us to select the subject topic we want to view information on. Houses the SelectorButtons
+
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+
+-   SelectorButtons: Simple button component that will be linked to back end via fetch requests targeted at specific subjects via their ID
+
