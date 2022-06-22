@@ -13,29 +13,29 @@ const getComments = async (postId) => {
   await new Promise((res) => setTimeout(res, 1000));
   return [
     {
-      id: "1",
-      postId: "1",
+      id: 1,
+      postId: 1,
       username: "jeff",
       content: "I am a comment 1",
       timestamp: "2nd January 2022",
     },
     {
-      id: "2",
-      postId: "1",
+      id: 2,
+      postId: 1,
       username: "jeff",
       content: "I am a comment 2",
       timestamp: "2nd January 2022",
     },
     {
-      id: "3",
-      postId: "2",
+      id: 3,
+      postId: 2,
       username: "jeff",
       content: "I am a comment 3",
       timestamp: "2nd January 2022",
     },
     {
-      id: "4",
-      postId: "2",
+      id: 4,
+      postId: 2,
       username: "jeff",
       content: "I am a comment 4",
       timestamp: "2nd January 2022",

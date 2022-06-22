@@ -1,15 +1,18 @@
-import * as React from 'react';
-import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
+import * as React from "react";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
+import { useState } from "react";
 
 export default function CreateComment() {
-    //controls the opening and closing of the REPLY modal
-const [open, setOpen] = React.useState(false);
+  //controls the opening and closing of the REPLY modal
+  const [open, setOpen] = useState(false);
+  const [user, setUser] = useState("");
+  const [comment, setComment] = useState("");
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -19,10 +22,29 @@ const [open, setOpen] = React.useState(false);
     setOpen(false);
   };
 
-function getCommentData() {
-    const data = TextField.target.value;
-    console.log(data)
-  };
+  //**************** */
+
+  function handleUserInput(event) {
+    // This function tracks the string information typed into the input field.
+    const value = event.target.value;
+    setUser(value);
+  }
+
+  function handleCommentInput(event) {
+    // This function tracks the string information typed into the input field.
+    const value = event.target.value;
+    setComment(value);
+  }
+  
+    function handleClick() {
+     console.log(user, comment);
+     setComment("");
+     setUser("");
+     setOpen(false);
+    };
+
+
+  //*************** */
 
   return (
     <div>
@@ -32,7 +54,8 @@ function getCommentData() {
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>What you wanna say?</DialogTitle>
         <DialogContent>
-        <TextField
+          <TextField
+            onChange={handleUserInput}
             autoFocus
             margin="dense"
             id="name"
@@ -41,9 +64,10 @@ function getCommentData() {
             fullWidth
             variant="standard"
             multiline
-            // value=""
+            value={user}
           />
           <TextField
+          onChange={handleCommentInput}
             autoFocus
             margin="dense"
             id="reply"
@@ -52,11 +76,12 @@ function getCommentData() {
             fullWidth
             variant="standard"
             multiline
+            value={comment}
           />
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleClose}>Submit</Button>
+          <Button onClick={handleClick}>Submit</Button>
         </DialogActions>
       </Dialog>
     </div>
