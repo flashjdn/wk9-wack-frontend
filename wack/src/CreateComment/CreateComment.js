@@ -12,7 +12,8 @@ export default function CreateComment() {
   //controls the opening and closing of the REPLY modal
   const [open, setOpen] = useState(false);
   const [user, setUser] = useState("");
-  const [comment, setComment] = useState("");
+  const [content, setContent] = useState("");
+  const [comment, setComment] = useState({});
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -33,13 +34,18 @@ export default function CreateComment() {
   function handleCommentInput(event) {
     // This function tracks the string information typed into the input field.
     const value = event.target.value;
-    setComment(value);
+    setContent(value);
   }
   
     function handleClick() {
-     console.log(user, comment);
-     setComment("");
+     console.log(user, content);
+     setContent("");
      setUser("");
+     setComment({
+        username: user,
+        content: content,
+        postId: ""
+     })
      setOpen(false);
     };
 
@@ -76,7 +82,7 @@ export default function CreateComment() {
             fullWidth
             variant="standard"
             multiline
-            value={comment}
+            value={content}
           />
         </DialogContent>
         <DialogActions>

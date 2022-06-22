@@ -6,6 +6,7 @@ import { useState } from "react";
 // import Comment from "./CommentDisplay/Comment";
 // import CreateComment from "./CreateComment/CreateComment";
 import "./App.css";
+// import * from "../../../w9_backend-project-bruh/models"
 
 const getPosts = async () => {
     await new Promise((res) => setTimeout(res, 1000));
@@ -46,10 +47,12 @@ const getPosts = async () => {
 };
 
 export default function App() {
-    const [title, setTitle] = useState("");
-    const [user, setUser] = useState("");
-    const [comment, setComment] = useState("");
+    
     const [posts, setPosts] = React.useState(null);
+
+async function setPost(){
+
+}
 
     React.useEffect(() => {
         getPosts()
@@ -64,7 +67,7 @@ export default function App() {
     return (
         <div>
             <div>
-                <CreatePost title={title} user={user} comment={comment} />
+                <CreatePost />
             </div>
             {posts ? (
                 posts.map((post) => (

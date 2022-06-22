@@ -27,14 +27,14 @@ const getComments = async (postId) => {
         },
         {
             id: 3,
-            postId: 2,
+            postId: 3,
             username: "jeff",
             content: "I am a comment 3",
             timestamp: "2nd January 2022",
         },
         {
             id: 4,
-            postId: 2,
+            postId: 3,
             username: "jeff",
             content: "I am a comment 4",
             timestamp: "2nd January 2022",
@@ -71,7 +71,7 @@ export default function Post({ username, timestamp, content, title, id }) {
                     comments.map((comment) => (
                         <div>
                             <Comment
-                                key={comment.id}
+                                id={comment.postId}
                                 username={comment.username}
                                 content={comment.content}
                                 timestamp={comment.timestamp}
