@@ -53,7 +53,7 @@ export default function CreatePost() {
       username: user,
       content: content,
     });
-    sendPost(post)
+    // sendPost(post)
     console.log(post);
     setOpen(false);
   }

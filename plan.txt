@@ -59,3 +59,25 @@ Contents: the make up of the component
 
 -   SelectorButtons: Simple button component that will be linked to back end via fetch requests targeted at specific subjects via their ID
 
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+
+-   NewPostButton: Button that brings up a modal allowing for a user to write a new post. This will get saved in state, and then sent to the database.
+
+CommentInput:
+
+Props: (What will this function take in?)
+
+Output: What do we expect the function to do?
+-   Track what's being typed in the comment input box
+-   Saves the latest entry in the box to state
+-   handleClick
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+
+- Fetch:
+    -   post Posts
+    -   get Posts
+    -   post Comments
+    -   get Comments
