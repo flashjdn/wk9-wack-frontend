@@ -63,7 +63,10 @@ export default function Post({ username, timestamp, content, title, post_id }) {
       });
   };
 
-  React.useEffect(() => {loadComments()}, []);
+  React.useEffect(() => {
+    loadComments();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const formattedDate = new Date(timestamp);
 
@@ -92,7 +95,7 @@ export default function Post({ username, timestamp, content, title, post_id }) {
         ) : (
           <CircularProgress />
         )}
-        <CreateComment post_id={post_id} loadComments={loadComments}/>
+        <CreateComment post_id={post_id} loadComments={loadComments} />
       </AccordionDetails>
     </Accordion>
   );

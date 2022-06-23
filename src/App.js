@@ -3,9 +3,6 @@ import * as React from "react";
 import Post from "./PostDisplay/PostDisplay";
 import CreatePost from "./CreatePost/CreatePost";
 import { useState, useEffect } from "react";
-import Comment from "./CommentDisplay/Comment";
-// import Comment from "./CommentDisplay/Comment";
-// import CreateComment from "./CreateComment/CreateComment";
 import "./App.css";
 import { Typography } from "@mui/material";
 // import * from "../../../w9_backend-project-bruh/models"
