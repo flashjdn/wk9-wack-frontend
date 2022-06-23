@@ -9,7 +9,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import { useState } from "react";
 import sendComment from "../SendComment/SendComment";
 
-export default function CreateComment({ post_id }) {
+export default function CreateComment({ post_id, loadComments }) {
   //controls the opening and closing of the REPLY modal
   console.log("post id", post_id);
   const [open, setOpen] = useState(false);
@@ -40,7 +40,7 @@ export default function CreateComment({ post_id }) {
   }
 
   function handleClick() {
-    console.log(comment);
+    console.log("comment before", comment);
     setContent("");
     setUser("");
     setComment({
@@ -48,12 +48,14 @@ export default function CreateComment({ post_id }) {
       content: content,
       post_id: post_id,
     });
-    sendComment(post_id, user, content);
+    sendComment(post_id, user, content).then(() => {
+      loadComments();
+    });
     setOpen(false);
   }
 
   //*************** */
-  console.log("comment", comment);
+  console.log("comment after", comment);
   return (
     <div>
       <Button variant="outlined" onClick={handleClickOpen}>

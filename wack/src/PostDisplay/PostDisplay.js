@@ -52,7 +52,7 @@ export default function Post({ username, timestamp, content, title, post_id }) {
   const [comments, setComments] = React.useState(null);
   //useEffect retrieves comments from db, then renders them within the collapsable post component
   //Notice that there is a loading screen for the comments
-  React.useEffect(() => {
+  const loadComments = () => {
     getComments(post_id)
       .then((data) => {
         console.log("comments data", data);
@@ -61,7 +61,11 @@ export default function Post({ username, timestamp, content, title, post_id }) {
       .catch(() => {
         // render error here
       });
-  }, []);
+  };
+
+  React.useEffect(() => {loadComments()}, []);
+
+  const formattedDate = new Date(timestamp);
 
   return (
     <Accordion>
@@ -69,7 +73,7 @@ export default function Post({ username, timestamp, content, title, post_id }) {
         <div>
           <Typography variant="h4">{title}</Typography>
           <Typography variant="h4">{username}</Typography>
-          <Chip label={timestamp} />
+          <Chip label={formattedDate.toLocaleString()} />
           <Typography>{content}</Typography>
         </div>
       </AccordionSummary>
@@ -81,14 +85,14 @@ export default function Post({ username, timestamp, content, title, post_id }) {
                 // post_id={comment.post_id}
                 username={comment.username}
                 content={comment.content}
-                timestamp={comment.timestamp}
+                timestamp={comment.post_date}
               />
             </div>
           ))
         ) : (
           <CircularProgress />
         )}
-        <CreateComment post_id={post_id} />
+        <CreateComment post_id={post_id} loadComments={loadComments}/>
       </AccordionDetails>
     </Accordion>
   );

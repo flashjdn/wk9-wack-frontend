@@ -77,3 +77,9 @@ Output: What do we expect the function to do?
 
 
 comments/
+
+left to do:
+
+New post button
+
+css formatting

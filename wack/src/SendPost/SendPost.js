@@ -18,7 +18,7 @@ function sendPost(title, user, content) {
         return response.json(); // parses JSON response into native JavaScript objects
     }
 
-    sendPost("https://week9-project-soc.herokuapp.com/posts", {
+    return sendPost("https://week9-project-soc.herokuapp.com/posts", {
         user_id: 1,
         sub_category_id: 1,
         username: user,

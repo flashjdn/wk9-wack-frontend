@@ -7,6 +7,7 @@ import Comment from "./CommentDisplay/Comment";
 // import Comment from "./CommentDisplay/Comment";
 // import CreateComment from "./CreateComment/CreateComment";
 import "./App.css";
+import { Typography } from "@mui/material";
 // import * from "../../../w9_backend-project-bruh/models"
 
 const getPosts = async () => {
@@ -52,13 +53,10 @@ const getPosts = async () => {
 
 export default function App() {
   const [posts, setPosts] = useState(null);
-  const [selectedPost, setSelectedPost] = useState("");
 
   // async function setPost(){
 
-  // }
-
-  useEffect(() => {
+  const loadPosts = () => {
     getPosts()
       .then((data) => {
         setPosts(data);
@@ -66,12 +64,20 @@ export default function App() {
       .catch(() => {
         // render error here
       });
+      console.log("loadPosts called");
+  };
+
+  useEffect(() => {
+    loadPosts();
   }, []);
 
   return (
     <div>
+      <header>
+        <Typography variant="h2"> Wack </Typography>
+      </header>
       <div>
-        <CreatePost />
+        <CreatePost loadPosts={loadPosts} />
       </div>
       {posts ? (
         posts.map((post) => (
@@ -83,7 +89,6 @@ export default function App() {
               title={post.title}
               timestamp={post.post_date}
               post_id={post.post_id}
-              // onClick={setSelectedPost(post.id)}
             />
           </div>
         ))
