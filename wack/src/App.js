@@ -82,7 +82,7 @@ export default function App() {
                             content={post.content}
                             title={post.title}
                             timestamp={post.timestamp}
-                            id={post.id}
+                            post_id={post.post_id}
                             // onClick={setSelectedPost(post.id)}
                         />
                     </div>
