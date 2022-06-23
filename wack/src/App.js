@@ -10,13 +10,13 @@ import "./App.css";
 // import * from "../../../w9_backend-project-bruh/models"
 
 const getPosts = async () => {
-    const res = await fetch(`https://week9-project-soc.herokuapp.com/posts`);
-    const data = await res.json();
-    console.log(data);
-    return data.payload;
+  const res = await fetch(`https://week9-project-soc.herokuapp.com/posts`);
+  const data = await res.json();
+  console.log(data);
+  return data.payload;
 };
 //         {
-//             id: 1,
+//             post_id: 1,
 //             key: 1,
 //             username: "peter",
 //             content: "I am a post",
@@ -51,45 +51,45 @@ const getPosts = async () => {
 // };
 
 export default function App() {
-    const [posts, setPosts] = useState(null);
-    const [selectedPost, setSelectedPost] = useState("");
+  const [posts, setPosts] = useState(null);
+  const [selectedPost, setSelectedPost] = useState("");
 
-    // async function setPost(){
+  // async function setPost(){
 
-    // }
+  // }
 
-    useEffect(() => {
-        getPosts()
-            .then((data) => {
-                setPosts(data);
-            })
-            .catch(() => {
-                // render error here
-            });
-    }, []);
+  useEffect(() => {
+    getPosts()
+      .then((data) => {
+        setPosts(data);
+      })
+      .catch(() => {
+        // render error here
+      });
+  }, []);
 
-    return (
-        <div>
-            <div>
-                <CreatePost />
-            </div>
-            {posts ? (
-                posts.map((post) => (
-                    <div>
-                        <Post
-                            key={post.id}
-                            username={post.username}
-                            content={post.content}
-                            title={post.title}
-                            timestamp={post.timestamp}
-                            post_id={post.post_id}
-                            // onClick={setSelectedPost(post.id)}
-                        />
-                    </div>
-                ))
-            ) : (
-                <CircularProgress />
-            )}
-        </div>
-    );
+  return (
+    <div>
+      <div>
+        <CreatePost />
+      </div>
+      {posts ? (
+        posts.map((post) => (
+          <div>
+            <Post
+              key={post.post_id}
+              username={post.username}
+              content={post.content}
+              title={post.title}
+              timestamp={post.post_date}
+              post_id={post.post_id}
+              // onClick={setSelectedPost(post.id)}
+            />
+          </div>
+        ))
+      ) : (
+        <CircularProgress />
+      )}
+    </div>
+  );
 }

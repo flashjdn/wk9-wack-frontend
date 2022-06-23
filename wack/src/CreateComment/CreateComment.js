@@ -7,9 +7,11 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import { useState } from "react";
+import sendComment from "../SendComment/SendComment";
 
-export default function CreateComment() {
+export default function CreateComment({ post_id }) {
   //controls the opening and closing of the REPLY modal
+  console.log("post id", post_id);
   const [open, setOpen] = useState(false);
   const [user, setUser] = useState("");
   const [content, setContent] = useState("");
@@ -36,22 +38,22 @@ export default function CreateComment() {
     const value = event.target.value;
     setContent(value);
   }
-  
-    function handleClick() {
-     console.log(user, content);
-     setContent("");
-     setUser("");
-     setComment({
-        username: user,
-        content: content,
-        postId: ""
-     })
-     setOpen(false);
-    };
 
+  function handleClick() {
+    console.log(comment);
+    setContent("");
+    setUser("");
+    setComment({
+      username: user,
+      content: content,
+      post_id: post_id,
+    });
+    sendComment(post_id, user, content);
+    setOpen(false);
+  }
 
   //*************** */
-
+  console.log("comment", comment);
   return (
     <div>
       <Button variant="outlined" onClick={handleClickOpen}>
@@ -73,7 +75,7 @@ export default function CreateComment() {
             value={user}
           />
           <TextField
-          onChange={handleCommentInput}
+            onChange={handleCommentInput}
             autoFocus
             margin="dense"
             id="reply"

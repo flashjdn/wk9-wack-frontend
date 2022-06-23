@@ -1,7 +1,7 @@
 import Chip from '@mui/material/Chip/Chip';
 import * as React from 'react';
 
-export default function Comment({ username, timestamp, content }) {
+export default function Comment({ username, timestamp, content}) {
     //JSX being returned here shows the format of a comment, structure to be amended 
   return (
     <div
