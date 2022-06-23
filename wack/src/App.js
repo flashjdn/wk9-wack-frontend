@@ -3,6 +3,7 @@ import * as React from "react";
 import Post from "./PostDisplay/PostDisplay";
 import CreatePost from "./CreatePost/CreatePost";
 import { useState, useEffect } from "react";
+import Comment from "./CommentDisplay/Comment";
 // import Comment from "./CommentDisplay/Comment";
 // import CreateComment from "./CreateComment/CreateComment";
 import "./App.css";
@@ -50,12 +51,12 @@ const getPosts = async () => {
 // };
 
 export default function App() {
-    
     const [posts, setPosts] = useState(null);
+    const [selectedPost, setSelectedPost] = useState("");
 
-// async function setPost(){
+    // async function setPost(){
 
-// }
+    // }
 
     useEffect(() => {
         getPosts()
@@ -82,6 +83,7 @@ export default function App() {
                             title={post.title}
                             timestamp={post.timestamp}
                             id={post.id}
+                            // onClick={setSelectedPost(post.id)}
                         />
                     </div>
                 ))
