@@ -76,8 +76,10 @@ Output: What do we expect the function to do?
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
 
-- Fetch:
-    -   post Posts
-    -   get Posts
-    -   post Comments
-    -   get Comments
+comments/
+
+left to do:
+
+New post button
+
+css formatting
