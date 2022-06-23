@@ -10,43 +10,9 @@ import { Typography } from "@mui/material";
 const getPosts = async () => {
   const res = await fetch(`https://week9-project-soc.herokuapp.com/posts`);
   const data = await res.json();
-  console.log(data);
+  // console.log(data);
   return data.payload;
 };
-//         {
-//             post_id: 1,
-//             key: 1,
-//             username: "peter",
-//             content: "I am a post",
-//             title: "my first post",
-//             timestamp: "2nd January 2022",
-//         },
-//         {
-//             id: 2,
-//             key: 2,
-//             username: "peter",
-//             content: "I am a post",
-//             title: "my second post",
-//             timestamp: "2nd January 2022",
-//         },
-//         {
-//             id: 3,
-//             key: 3,
-//             username: "peter",
-//             content: "I am a post",
-//             title: "my third post",
-//             timestamp: "2nd January 2022",
-//         },
-//         {
-//             id: 4,
-//             key: 4,
-//             username: "peter",
-//             content: "I am a post",
-//             title: "my fourth post",
-//             timestamp: "2nd January 2022",
-//         },
-//     ];
-// };
 
 export default function App() {
   const [posts, setPosts] = useState(null);
@@ -61,7 +27,7 @@ export default function App() {
       .catch(() => {
         // render error here
       });
-      console.log("loadPosts called");
+    // console.log("loadPosts called");
   };
 
   useEffect(() => {
@@ -69,16 +35,27 @@ export default function App() {
   }, []);
 
   return (
-    <div>
-      <header>
-        <Typography variant="h2"> Wack </Typography>
-      </header>
-      <div>
+    <div
+      style={{
+        margin: 20,
+        // boxShadow: "0px 10px 0px 0px rgb(138, 136, 131, 0.5) "
+      }}
+    >
+      <div
+        style={{
+          position: "sticky",
+          top: 0,
+          zIndex: 200,
+          backgroundColor: "white",
+        }}
+      >
+        <Typography variant="h2"> Wack🤨 </Typography>
         <CreatePost loadPosts={loadPosts} />
       </div>
+      <div></div>
       {posts ? (
         posts.map((post) => (
-          <div>
+          <div style={{ margin: 30 }}>
             <Post
               key={post.post_id}
               username={post.username}

@@ -10,10 +10,11 @@ import sendComment from "../SendComment/SendComment";
 
 export default function CreateComment({ post_id, loadComments }) {
   //controls the opening and closing of the REPLY modal
-  console.log("post id", post_id);
+  // console.log("post id", post_id);
   const [open, setOpen] = useState(false);
   const [user, setUser] = useState("");
   const [content, setContent] = useState("");
+  // eslint-disable-next-line no-unused-vars
   const [comment, setComment] = useState({});
 
   const handleClickOpen = () => {
@@ -39,7 +40,7 @@ export default function CreateComment({ post_id, loadComments }) {
   }
 
   function handleClick() {
-    console.log("comment before", comment);
+    // console.log("comment before", comment);
     setContent("");
     setUser("");
     setComment({
@@ -54,14 +55,20 @@ export default function CreateComment({ post_id, loadComments }) {
   }
 
   //*************** */
-  console.log("comment after", comment);
+  // console.log("comment after", comment);
   return (
-    <div>
-      <Button variant="outlined" onClick={handleClickOpen}>
+    <div style={{position: "relative"}}>
+      <Button
+        style={{ position: "absolute", right: 10,
+         bottom: 20
+         }}
+        variant="outlined"
+        onClick={handleClickOpen}
+      >
         Reply
       </Button>
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>What you wanna say?</DialogTitle>
+        <DialogTitle>What would you like to say?</DialogTitle>
         <DialogContent>
           <TextField
             onChange={handleUserInput}

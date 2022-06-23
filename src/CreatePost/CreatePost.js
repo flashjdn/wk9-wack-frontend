@@ -14,6 +14,7 @@ export default function CreatePost({ loadPosts }) {
   const [user, setUser] = useState("");
   const [content, setContent] = useState("");
   const [open, setOpen] = useState(false);
+  // eslint-disable-next-line no-unused-vars
   const [post, setPost] = useState({});
 
   const handleClickOpen = () => {
@@ -24,7 +25,6 @@ export default function CreatePost({ loadPosts }) {
     setOpen(false);
   };
 
-  //**************** */
 
   function handleTitleInput(event) {
     // This function tracks the string information typed into the input field.
@@ -53,25 +53,25 @@ export default function CreatePost({ loadPosts }) {
       username: user,
       content: content,
     });
-    console.log(post);
+    // console.log(post);
     setOpen(false);
     sendPost(title, user, content).then(() => {
       loadPosts();
     });
   }
 
-  console.log(post);
-  //*************** */
 
   return (
     <div>
       <div
         style={{
           position: "fixed",
-          top: 50,
+          top: 25,
           right: 50,
           zIndex: 100,
-          backgroundColor: "white",
+          display: "flex",
+          justifyContent: "center"
+          
         }}
       >
         <Button variant="contained" onClick={handleClickOpen}>
@@ -114,7 +114,7 @@ export default function CreatePost({ loadPosts }) {
             type="string"
             fullWidth
             variant="standard"
-            multiline="true"
+            // multiline="true"
             value={content}
           />
         </DialogContent>

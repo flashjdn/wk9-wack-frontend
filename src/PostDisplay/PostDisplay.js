@@ -15,39 +15,7 @@ const getComments = async (post_id) => {
 
   return data.payload.filter((comment) => comment.post_id === post_id);
 };
-/*
-  return [
-    {
-      id: 1,
-      post_id: 8,
-      username: "jeff",
-      content: "I am a comment 1",
-      timestamp: "2nd January 2022",
-    },
-    {
-      id: 2,
-      post_id: 8,
-      username: "jeff",
-      content: "I am a comment 2",
-      timestamp: "2nd January 2022",
-    },
-    {
-      id: 3,
-      post_id: 3,
-      username: "jeff",
-      content: "I am a comment 3",
-      timestamp: "2nd January 2022",
-    },
-    {
-      id: 4,
-      post_id: 3,
-      username: "jeff",
-      content: "I am a comment 4",
-      timestamp: "2nd January 2022",
-    },
-  ].filter((comment) => Number(comment.post_id) === post_id);
-};
-*/
+
 export default function Post({ username, timestamp, content, title, post_id }) {
   const [comments, setComments] = React.useState(null);
   //useEffect retrieves comments from db, then renders them within the collapsable post component
@@ -55,7 +23,7 @@ export default function Post({ username, timestamp, content, title, post_id }) {
   const loadComments = () => {
     getComments(post_id)
       .then((data) => {
-        console.log("comments data", data);
+        // console.log("comments data", data);
         setComments(data);
       })
       .catch(() => {
@@ -65,6 +33,7 @@ export default function Post({ username, timestamp, content, title, post_id }) {
 
   React.useEffect(() => {
     loadComments();
+    //DO NOT DELETE THE BELOW COMMENT
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -72,18 +41,32 @@ export default function Post({ username, timestamp, content, title, post_id }) {
 
   return (
     <Accordion>
-      <AccordionSummary style={{ marginTop: 60 }}>
+      <AccordionSummary
+        style={{
+          marginTop: 30,
+          backgroundColor: "#fadedd",
+        }}
+      >
         <div>
-          <Typography variant="h4">{title}</Typography>
-          <Typography variant="h4">{username}</Typography>
-          <Chip label={formattedDate.toLocaleString()} />
-          <Typography>{content}</Typography>
+          <Typography style={{ fontStyle: "bold" }} variant="h4">
+            {title}
+          </Typography>
+          <Typography style={{ fontStyle: "italic" }} variant="subtitle1">
+            Post author - {username}
+          </Typography>
+          <Chip
+            variant="filled"
+            size="small"
+            label={formattedDate.toLocaleString()}
+            style={{ marginBottom: 10 }}
+          />
+          <Typography style={{margin:10}} variant="h6">{content}</Typography>
         </div>
       </AccordionSummary>
-      <AccordionDetails>
+      <AccordionDetails style={{ backgroundColor: "#fadedd" }}>
         {comments ? (
           comments.map((comment) => (
-            <div>
+            <div style={{ position: "relative" }}>
               <Comment
                 // post_id={comment.post_id}
                 username={comment.username}
