@@ -35,40 +35,42 @@ export default function App() {
   }, []);
 
   return (
-    <div
-      style={{
-        margin: 20,
-        // boxShadow: "0px 10px 0px 0px rgb(138, 136, 131, 0.5) "
-      }}
-    >
+    <main style={{ backgroundColor: "#FFF0EC" }}>
       <div
         style={{
-          position: "sticky",
-          top: 0,
-          zIndex: 200,
-          backgroundColor: "white",
+          margin: 20,
+          // boxShadow: "0px 10px 0px 0px rgb(138, 136, 131, 0.5) "
         }}
       >
-        <Typography variant="h2"> Wack🤨 </Typography>
-        <CreatePost loadPosts={loadPosts} />
+        <div
+          style={{
+            position: "sticky",
+            top: 0,
+            zIndex: 200,
+            backgroundColor: "#FFF0EC",
+          }}
+        >
+          <Typography variant="h2"> Wack🤨 </Typography>
+          <CreatePost loadPosts={loadPosts} />
+        </div>
+        <div></div>
+        {posts ? (
+          posts.map((post) => (
+            <div style={{ margin: 30 }}>
+              <Post
+                key={post.post_id}
+                username={post.username}
+                content={post.content}
+                title={post.title}
+                timestamp={post.post_date}
+                post_id={post.post_id}
+              />
+            </div>
+          ))
+        ) : (
+          <CircularProgress />
+        )}
       </div>
-      <div></div>
-      {posts ? (
-        posts.map((post) => (
-          <div style={{ margin: 30 }}>
-            <Post
-              key={post.post_id}
-              username={post.username}
-              content={post.content}
-              title={post.title}
-              timestamp={post.post_date}
-              post_id={post.post_id}
-            />
-          </div>
-        ))
-      ) : (
-        <CircularProgress />
-      )}
-    </div>
+    </main>
   );
 }

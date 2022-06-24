@@ -25,7 +25,6 @@ export default function CreatePost({ loadPosts }) {
     setOpen(false);
   };
 
-
   function handleTitleInput(event) {
     // This function tracks the string information typed into the input field.
     const value = event.target.value;
@@ -60,7 +59,6 @@ export default function CreatePost({ loadPosts }) {
     });
   }
 
-
   return (
     <div>
       <div
@@ -70,8 +68,7 @@ export default function CreatePost({ loadPosts }) {
           right: 50,
           zIndex: 100,
           display: "flex",
-          justifyContent: "center"
-          
+          justifyContent: "center",
         }}
       >
         <Button variant="contained" onClick={handleClickOpen}>
@@ -91,6 +88,7 @@ export default function CreatePost({ loadPosts }) {
             type="string"
             fullWidth
             variant="standard"
+            multiline
             value={title}
           />
           <TextField
@@ -114,7 +112,7 @@ export default function CreatePost({ loadPosts }) {
             type="string"
             fullWidth
             variant="standard"
-            // multiline="true"
+            multiline
             value={content}
           />
         </DialogContent>

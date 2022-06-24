@@ -39,3 +39,7 @@ h1, p {
     transform: rotate(360deg);
   }
 }
+
+body {
+  background-color: #FFF0EC;
+}
