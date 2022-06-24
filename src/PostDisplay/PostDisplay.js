@@ -44,7 +44,7 @@ export default function Post({ username, timestamp, content, title, post_id }) {
       <AccordionSummary
         style={{
           marginTop: 30,
-          backgroundColor: "#fadedd",
+          backgroundColor: "#4dd8f2",
         }}
       >
         <div>
@@ -63,7 +63,7 @@ export default function Post({ username, timestamp, content, title, post_id }) {
           <Typography style={{margin:10}} variant="h6">{content}</Typography>
         </div>
       </AccordionSummary>
-      <AccordionDetails style={{ backgroundColor: "#fadedd" }}>
+      <AccordionDetails style={{ backgroundColor: "rgba(77, 216, 242, 0.7)" }}>
         {comments ? (
           comments.map((comment) => (
             <div style={{ position: "relative" }}>
