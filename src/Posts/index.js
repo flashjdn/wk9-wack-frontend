@@ -5,7 +5,7 @@ import Chip from "@mui/material/Chip";
 import CircularProgress from "@mui/material/CircularProgress/CircularProgress";
 import Typography from "@mui/material/Typography/Typography";
 import * as React from "react";
-import Comment from "./CommentDisplay";
+import Comment from "./Comment";
 import ReplyButton from "./ReplyButton";
 import { getComments } from "../Models/getComments";
 
