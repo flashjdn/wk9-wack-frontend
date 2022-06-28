@@ -1,29 +1,26 @@
 import CircularProgress from "@mui/material/CircularProgress/CircularProgress";
 import { getPosts } from "./Models/getPosts";
 import Posts from "./Posts/index.js";
-import NewPostButton from "./NewPostButton";
+import NewPostButton from "./NewPostButton/index.js";
 import { useState, useEffect } from "react";
 import "./App.css";
 import { Typography } from "@mui/material";
-
-
-
 
 export default function App() {
   const [posts, setPosts] = useState(null);
 
   // async function setPost(){
 
-    const loadPosts = () => {
-      getPosts()
-        .then((data) => {
-          setPosts(data);
-        })
-        .catch(() => {
-          // render error here
-        });
-      // console.log("loadPosts called");
-    };
+  const loadPosts = () => {
+    getPosts()
+      .then((data) => {
+        setPosts(data);
+      })
+      .catch(() => {
+        // render error here
+      });
+    // console.log("loadPosts called");
+  };
 
   useEffect(() => {
     loadPosts();

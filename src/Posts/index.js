@@ -5,13 +5,17 @@ import Chip from "@mui/material/Chip";
 import CircularProgress from "@mui/material/CircularProgress/CircularProgress";
 import Typography from "@mui/material/Typography/Typography";
 import * as React from "react";
-import Comment from "../../Comments/CommentDisplay";
-import ReplyButton from "../../Comments/CreateComment/CreateComment";
+import Comment from "./CommentDisplay";
+import ReplyButton from "./ReplyButton";
 import { getComments } from "../Models/getComments";
 
-
-
-export default function Posts({ username, timestamp, content, title, post_id }) {
+export default function Posts({
+  username,
+  timestamp,
+  content,
+  title,
+  post_id,
+}) {
   const [comments, setComments] = React.useState(null);
   //useEffect retrieves comments from db, then renders them within the collapsable post component
   //Notice that there is a loading screen for the comments
@@ -55,7 +59,9 @@ export default function Posts({ username, timestamp, content, title, post_id }) 
             label={formattedDate.toLocaleString()}
             style={{ marginBottom: 10 }}
           />
-          <Typography style={{margin:10}} variant="h6">{content}</Typography>
+          <Typography style={{ margin: 10 }} variant="h6">
+            {content}
+          </Typography>
         </div>
       </AccordionSummary>
       <AccordionDetails style={{ backgroundColor: "rgba(77, 216, 242, 0.7)" }}>
