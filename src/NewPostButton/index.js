@@ -5,10 +5,10 @@ import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
-import sendPost from "../SendPost/SendPost";
+import sendPost from "../Models/sendPost";
 import { useState } from "react";
 
-export default function CreatePost({ loadPosts }) {
+export default function NewPostButton({ loadPosts }) {
   //controls the opening and closing of the REPLY modal
   const [title, setTitle] = useState("");
   const [user, setUser] = useState("");

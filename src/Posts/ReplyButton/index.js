@@ -6,9 +6,9 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
 import { useState } from "react";
-import sendComment from "../SendComment/SendComment";
+import sendComment from "../../Models/sendComment";
 
-export default function CreateComment({ post_id, loadComments }) {
+export default function ReplyButton({ post_id, loadComments }) {
   //controls the opening and closing of the REPLY modal
   // console.log("post id", post_id);
   const [open, setOpen] = useState(false);
@@ -57,11 +57,9 @@ export default function CreateComment({ post_id, loadComments }) {
   //*************** */
   // console.log("comment after", comment);
   return (
-    <div style={{position: "relative"}}>
+    <div style={{ position: "relative" }}>
       <Button
-        style={{ position: "absolute", right: 10,
-         bottom: 20
-         }}
+        style={{ position: "absolute", right: 10, bottom: 20 }}
         variant="outlined"
         onClick={handleClickOpen}
       >

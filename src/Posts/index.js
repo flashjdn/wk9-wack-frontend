@@ -5,18 +5,13 @@ import Chip from "@mui/material/Chip";
 import CircularProgress from "@mui/material/CircularProgress/CircularProgress";
 import Typography from "@mui/material/Typography/Typography";
 import * as React from "react";
-import Comment from "../CommentDisplay/Comment";
-import CreateComment from "../CreateComment/CreateComment";
+import Comment from "../../Comments/CommentDisplay";
+import ReplyButton from "../../Comments/CreateComment/CreateComment";
+import { getComments } from "../Models/getComments";
 
-const getComments = async (post_id) => {
-  const res = await fetch(`https://week9-project-soc.herokuapp.com/comments`);
-  const data = await res.json();
-  //   console.log(data);
 
-  return data.payload.filter((comment) => comment.post_id === post_id);
-};
 
-export default function Post({ username, timestamp, content, title, post_id }) {
+export default function Posts({ username, timestamp, content, title, post_id }) {
   const [comments, setComments] = React.useState(null);
   //useEffect retrieves comments from db, then renders them within the collapsable post component
   //Notice that there is a loading screen for the comments
@@ -78,7 +73,7 @@ export default function Post({ username, timestamp, content, title, post_id }) {
         ) : (
           <CircularProgress />
         )}
-        <CreateComment post_id={post_id} loadComments={loadComments} />
+        <ReplyButton post_id={post_id} loadComments={loadComments} />
       </AccordionDetails>
     </Accordion>
   );
