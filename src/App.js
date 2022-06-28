@@ -1,6 +1,6 @@
 import CircularProgress from "@mui/material/CircularProgress/CircularProgress";
 import { getPosts } from "./Models/getPosts";
-import Posts from "./Posts/index.js";
+import Posts from "./PostContainer/index.js";
 import NewPostButton from "./NewPostButton/index.js";
 import { useState, useEffect } from "react";
 import "./App.css";
