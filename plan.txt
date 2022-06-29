@@ -83,3 +83,6 @@ left to do:
 New post button
 
 css formatting
+
+ * * * * * * * * * * * * * App component testing * * * * * * * * * * * * * * * * * *
+
