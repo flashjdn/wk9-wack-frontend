@@ -2,25 +2,40 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import NewPostButton from ".";
 
 it("Should reset the form when submit is clicked", () => {
-  //arrange: render the component, and insert text into input fields
-  const mockLoadPosts = jest.fn();
-  render(<NewPostButton loadPosts={mockLoadPosts} />);
+    //arrange: render the component, and insert text into input fields
+    const mockLoadPosts = jest.fn();
+    render(<NewPostButton loadPosts={mockLoadPosts} />);
 
-  fireEvent.click(screen.getByText("New Post"));
+    fireEvent.click(screen.getByText("New Post"));
 
-  expect(screen.getByText("Create New Post")).toBeInTheDocument();
+    expect(screen.getByText("Create New Post")).toBeInTheDocument();
 
-  fireEvent.change(screen.getByLabelText("Title"), {
-    target: {
-      value: "Test",
-    },
-  });
-  //act click "submit" button
-  const button = screen.getByText("Submit");
-  fireEvent.click(button);
+    fireEvent.change(screen.getByLabelText("Title"), {
+        target: {
+            value: "Test",
+        },
+    });
 
-  //assert check that the inputs have been cleared
-  expect(screen.getByLabelText("Title")).toHaveValue("");
+    fireEvent.change(screen.getByLabelText("Name"), {
+        target: {
+            value: "Test",
+        },
+    });
+
+    fireEvent.change(screen.getByLabelText("Comment"), {
+        target: {
+            value: "Test",
+        },
+    });
+
+    //act click "submit" button
+    const button = screen.getByText("Submit");
+    fireEvent.click(button);
+
+    //assert check that the inputs have been cleared
+    expect(screen.getByLabelText("Title")).toHaveValue("");
+    expect(screen.getByLabelText("Name")).toHaveValue("");
+    expect(screen.getByLabelText("Comment")).toHaveValue("");
 });
 
 //UI Testing
