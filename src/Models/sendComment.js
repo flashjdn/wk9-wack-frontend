@@ -18,7 +18,7 @@ function sendComment(post_id, user, content) {
     return response.json(); // parses JSON response into native JavaScript objects
   }
 
-  return sendComment("wackdb.cocmhl0wpq5d.eu-west-2.rds.amazonaws.com/comments", {
+  return sendComment("https://week9-project-soc.herokuapp.com/comments", {
     user_id: 1,
     username: user,
     content: content,

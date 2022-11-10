@@ -18,7 +18,7 @@ function sendPost(title, user, content) {
         return response.json(); // parses JSON response into native JavaScript objects
     }
 
-    return sendPost("wackdb.cocmhl0wpq5d.eu-west-2.rds.amazonaws.com/posts", {
+    return sendPost("https://week9-project-soc.herokuapp.com/posts", {
         user_id: 1,
         sub_category_id: 1,
         username: user,
