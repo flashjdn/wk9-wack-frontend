@@ -1,5 +1,5 @@
 export const getComments = async (post_id) => {
-    const res = await fetch(`https://week9-project-soc.herokuapp.com/comments`);
+    const res = await fetch(`https://customer.elephantsql.com/api/instances`);
     const data = await res.json();
     //   console.log(data);
   
