@@ -18,7 +18,7 @@ function sendComment(post_id, user, content) {
     return response.json(); // parses JSON response into native JavaScript objects
   }
 
-  return sendComment("https://customer.elephantsql.com/api/instances", {
+  return sendComment("https://wack-backend-l1q9.onrender.com/comments", {
     user_id: 1,
     username: user,
     content: content,

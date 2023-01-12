@@ -18,7 +18,7 @@ function sendPost(title, user, content) {
         return response.json(); // parses JSON response into native JavaScript objects
     }
 
-    return sendPost("https://customer.elephantsql.com/api/instances", {
+    return sendPost("https://wack-backend-l1q9.onrender.com/posts", {
         user_id: 1,
         sub_category_id: 1,
         username: user,
